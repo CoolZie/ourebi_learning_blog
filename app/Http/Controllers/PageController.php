@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Article;
 class PageController extends Controller
 {
+
     public function index()
     {
         $articles = Article::paginate(2);

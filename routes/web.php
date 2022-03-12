@@ -14,6 +14,16 @@ use Illuminate\Support\Facades\Route;
 */
 
 // GET afficher les pages , obtenir une ressource 
-Route::get('/','PageController@index');
-Route::get('/add-article','PageController@addArticle');
-Route::post('/add-article','ArticleController@store');
+Route::get('/','PageController@index')->name('home');
+Route::get('/add-article','PageController@addArticle')->middleware('auth');
+Route::post('/add-article','ArticleController@store')->middleware('auth');
+Route::get('/login','UserController@login')->name('login');
+Route::get('/register','UserController@register');
+Route::post('/register','UserController@createUser');
+Route::post('/login','UserController@loginUser');
+Route::get('/logout','UserController@logout');
+Route::get('/administrateur','UserController@admin');
+
+
+
+

@@ -11,6 +11,13 @@
           @if (url()->current() != url('add-article'))
             <a href="{{url('add-article')}}" class="btn btn-outline-success" type="submit">Ajouter un article</a>
           @endif
+          {{-- @if (Auth::user())
+            <a href="{{url('logout')}}" class="btn btn-outline-success" type="submit">Se deconnecter</a>
+          @endif --}}
+          @auth
+            <p class="m-2 text-white" name="user">{{Auth::user()->name}}</p>
+            <a href="{{url('logout')}}" class="btn btn-outline-success" type="submit">Se deconnecter</a>
+          @endauth
         </div>
       </div>
     </nav>
